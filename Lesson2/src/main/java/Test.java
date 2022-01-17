@@ -3,5 +3,6 @@ public class Test {
         System.out.println("sgs");
         System.out.println("sgs");
         System.out.println("sgs");
+        int g = 0;
     }
 }
