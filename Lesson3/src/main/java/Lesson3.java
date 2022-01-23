@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lesson3 {
@@ -9,7 +10,9 @@ public class Lesson3 {
         printLower();
         time();
         castingType();
-
+        int[] massive = {1,2,3,4,5};
+        System.out.println(average(massive));
+        System.out.println(max(massive));
     }
 
 
@@ -129,4 +132,34 @@ public class Lesson3 {
                 boolean  -       x       x      x     x       x      x       x
                 """);
     }
+
+    /**
+     * 6) Метод должен вернуть среднее значение из массива чисел
+     * (необходимо сумму всех элементов массива разделить на длину массива)
+     * <p>
+     * Example:
+     * array = {1,2,3,4,5}
+     * Метод должен return 3.0
+     */
+    public static double average(int[] array) {
+        double sum = 0;
+        for (int j : array) {
+            sum = sum + j;
+        }
+        return sum/array.length;
     }
+
+    /**
+     * 7) Метод должен вернуть максимальный элемент массива.
+     * Пример: array = {1,2,10,3} метод возвращает 10
+     **/
+    public static int max(int[] array) {
+        int max =  0;
+        for (int i = 0; i< array.length; i++) {
+            if (array[i] > max) {
+                 max= array[i];
+            }
+        }return max;
+    }
+}
+
