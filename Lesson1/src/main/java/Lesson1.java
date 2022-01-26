@@ -4,7 +4,7 @@ public class Main {
         for (String value : args) {
             int k = Integer.parseInt(value);
             if (k>0){
-               count++;
+                count++;
             }
         }
         System.out.println("Количество положительных чисел " + count);
