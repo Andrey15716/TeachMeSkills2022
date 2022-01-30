@@ -7,16 +7,14 @@ public class Lesson4 {
 
         random();
         ameba();
-        array();
-        zodiac();
-
+        numberCount();
+        zodiac(7,1);
 
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
         printArray();
-        System.out.println(operation(1));
         System.out.println(operation(0));
         System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
-        countDevs(103);
+        countDevs(111);
         countDevs(19);
         foobar(6);
         foobar(10);
@@ -32,7 +30,7 @@ public class Lesson4 {
 
 
     private static void random() {
-        int random = (int) (Math.random() * 7);
+        int random = (int) (Math.random() * 7) + 1;
 
         switch (random) {
             case 1 -> System.out.println("Понедельник");
@@ -40,7 +38,7 @@ public class Lesson4 {
             case 3 -> System.out.println("Среда");
             case 4 -> System.out.println("Четверг");
             case 5 -> System.out.println("Пятница");
-            case 6, 7 -> System.out.println("Суббота");
+            case 6, 7 -> System.out.println("Выходной");
         }
     }
 
@@ -49,10 +47,11 @@ public class Lesson4 {
 //         сколько амеб будет через 3, 6, 9, 12,..., 24 часа
 
     private static void ameba() {
-        int a = 2;
+        int count = 1;
 
-        for (int i = 1; i < 9; i++) {
-            System.out.println(a * i);
+        for (int i = 3; i <= 24; i+=3) {
+            count +=2;
+            System.out.println(count);
         }
     }
 
@@ -62,48 +61,38 @@ public class Lesson4 {
 //        Например, Введите число: 5
 //        "5 - это положительное число, количество цифр = 1"
 
-    private static void array() {
-        int[] array = {5};
-        String k = " - это положительное число, количество цифр = " + array.length;
-        String m = " - это отрицательное число, количество цифр = " + array.length;
+    private static void numberCount() {
 
-        if (array[0] % 2 == 0) {
-            System.out.println(array[0] + k);
-        } else
-            System.out.println(array[0] + m);
+        int number = -31;
+        String count = String.valueOf(number);
+        String a = null;
+
+        if (number !=0) {
+            a = number > 0 ? "положительное число, " : "отрицательное число, ";
+        }
+        int length  = count.length() - count.replaceAll("\\d+", "").length();
+        System.out.println(number + " - это " + a + "количество цифр = " + length);
     }
 
 
 //4) Дано 2 числа, день и месяц рождения. Написать программу, которая определяет знак зодиака человека.
 
-    public static void zodiac() {
-        int day = 6;
-        int month = 2;
+    public static void zodiac(int day, int month) {
 
-        if ((month == 3 && day >= 21) || (month == 4 && day <= 20))
-            System.out.println("Овен");
-        else if ((month == 4 && day >= 21) || (month == 5 && day <= 20))
-            System.out.println("Телец");
-        else if ((month == 5 && day >= 21) || (month == 6 && day <= 21))
-            System.out.println("Близнецы");
-        else if ((month == 6 && day >= 22) || (month == 7 && day <= 22))
-            System.out.println("Рак");
-        else if ((month == 7 && day >= 23) || (month == 8 && day <= 23))
-            System.out.println("Лев");
-        else if ((month == 8 && day >= 24) || (month == 9 && day <= 23))
-            System.out.println("Дева");
-        else if ((month == 9 && day >= 24) || (month == 10 && day <= 22))
-            System.out.println("Весы");
-        else if ((month == 10 && day >= 23) || (month == 11 && day <= 22))
-            System.out.println("Скорпион");
-        else if ((month == 11 && day >= 23) || (month == 12 && day <= 21))
-            System.out.println("Стрелец");
-        else if ((month == 12 && day >= 22) || (month == 1 && day <= 20))
-            System.out.println("Козерог");
-        else if ((month == 1 && day >= 21) || (month == 2 && day <= 19))
-            System.out.println("Водолей");
-        else if ((month == 2 && day >= 20) || (month == 3 && day <= 20))
-            System.out.println("Рыбы");
+        switch (month) {
+            case 1 -> System.out.println(day <= 20 ? "Козерог" : "Водолей");
+            case 2 -> System.out.println(day <= 19 ? "Водолей" : "Рыбы");
+            case 3 -> System.out.println(day <= 22 ? "Рыбы" : "Овен");
+            case 4 -> System.out.println(day <= 20 ? "Овен" : "Телец");
+            case 5 -> System.out.println(day <= 21 ? "Телец" : "Близнецы");
+            case 6 -> System.out.println(day <= 21 ? "Близнецы" : "Рак");
+            case 7 -> System.out.println(day <= 22 ? "Рак" : "Лев");
+            case 8 -> System.out.println(day <= 21 ? "Лев" : "Дева");
+            case 9 -> System.out.println(day <= 23 ? "Дева" : "Весы");
+            case 10 -> System.out.println(day <= 23 ? "Весы" : "Скорпион");
+            case 11 -> System.out.println(day <= 23 ? "Скорпион" : "Стрелец");
+            case 12 -> System.out.println(day <= 22 ? "Стрелец" : "Козерог");
+        } System.out.println("Введите правильную дату");
     }
 
 
@@ -124,8 +113,9 @@ public class Lesson4 {
 
         if (s >= 0) {
             System.out.println(s);
-        } else throw new IllegalArgumentException("Введите новое положительное число!");
-
+        } else {
+            System.out.println("Введите новое положительное число!");
+        }
         int[] massive = new int[s];
         for (int i = 0; i < massive.length; i++) {
             massive[i] = (int) (Math.random() * s);
@@ -144,14 +134,7 @@ public class Lesson4 {
 
     public static int operation(int number) {
         // тут пишем логику
-
-        if (number > 0) {
-            System.out.println(number + 1);
-        } else if (number < 0) {
-            System.out.println(number - 2);
-        } else {
-            System.out.println(10);
-        }
+        number = number == 0 ? number + 10 : number > 0 ? number + 1 : number - 2;
         return number;
     }
 
@@ -203,7 +186,7 @@ public class Lesson4 {
      */
     public static void foobar(int number) {
         // тут пишем логику
-        if ((number % 3 == 0) & (number % 5 == 0)) {
+        if ((number % 3 == 0) && (number % 5 == 0)) {
             System.out.println("foobar");
         } else if (number % 5 == 0) {
             System.out.println("bar");
@@ -222,16 +205,9 @@ public class Lesson4 {
 
     public static void printPrimeNumbers() {
         // тут пишем логику
-
-        int i;
-        int j;
-        boolean primeNumbers;
-
-        for (j = 2; j < 1000; j++) {
-            primeNumbers = false;
-
-            for (i = 2; i<= j/i; i++) {
-
+        for (int j = 2; j < 1000; j++) {
+            boolean primeNumbers = false;
+            for (int i = 2; i<= j/i; i++) {
                 if (j%i ==0) {
                     primeNumbers = true;
                     break;
