@@ -1,21 +1,25 @@
+
 public class Main {
 
     public static void main(String[] args) {
 
-        User user = new User("Andrey", "Antonenko");
-        User.info();
+        User user1 = new User("Andrey", "Antonenko", 28, 78, "I am a human");
 
-        user.age = 28;
-        user.about = "I am a human";
+        User user2 = new User();
+        user2.name = "Robotic";
+        user2.surname = "Roboto";
+        user2.age = 10;
+        user2.height = 312;
+        user2.about = " I am a machine";
 
-        User user1 = new User();
-        user1.about = "student";
-        user1.surname = "Robotic";
+        user1.addAge();
+        user2.addAge();
 
-        User user2 = new User(28, 80);
-        User.name = "Robot";
-        user2.about = "I am a machine";
+        user1.changeName();
 
-        System.out.println(User.name);
+        user1.getFullInformation();
+        user2.getFullInformation();
     }
 }
+
+
