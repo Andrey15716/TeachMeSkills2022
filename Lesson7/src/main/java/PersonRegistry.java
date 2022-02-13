@@ -1,6 +1,8 @@
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class PersonRegistry {
 
     private Person[] persons;
@@ -9,4 +11,3 @@ public class PersonRegistry {
         this.persons = persons;
     }
 }
-

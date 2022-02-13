@@ -18,8 +18,8 @@ public class Main {
         PersonRegistry personRegistry = new PersonRegistry(persons);
         MilitaryOffice militaryOffice = new MilitaryOffice(personRegistry);
 
-        System.out.println(Arrays.toString(militaryOffice.findPersons()));
-        System.out.println(militaryOffice.countPeopleByCity("Минск") + " - Количество призывников из Минска");
+        System.out.println(Arrays.toString(militaryOffice.findPersons("Belarus")));
+        System.out.println(militaryOffice.countPeopleByCity("Minsk") + " - Количество призывников из Минска");
         System.out.println(militaryOffice.countPeopleByName("Александр") + " - Количество призывников с именем Александр");
         System.out.println(militaryOffice.countByAge(20, 27) + " - Количество призывников возраста от 20 до 27");
     }

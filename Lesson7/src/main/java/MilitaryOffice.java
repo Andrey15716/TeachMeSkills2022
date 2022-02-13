@@ -1,6 +1,8 @@
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class MilitaryOffice {
 
     private PersonRegistry personRegistry;
@@ -9,15 +11,12 @@ public class MilitaryOffice {
         this.personRegistry = personRegistry;
     }
 
-    public Person[] findPersons() {
+    public Person[] findPersons(String country) {
         Person[] result = new Person[personRegistry.getPersons().length];
-        int count = 0;
         for (int i = 0; i < personRegistry.getPersons().length; i++) {
             Person person = personRegistry.getPersons()[i];
-            if (person.getAge() >= 18 && person.getAge() < 27 && person.getSex().equals(Person.MALE) && person.getAddress().getCountry().equals("Беларусь")) {
+            if (person.getAddress().getCountry().equals(country)) {
                 result[i] = person;
-            } else {
-                count++;
             }
         }
         return result;
