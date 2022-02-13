@@ -1,7 +1,8 @@
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class Person {
 
     public static final String MALE = "Мужской";

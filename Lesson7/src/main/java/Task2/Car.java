@@ -1,10 +1,11 @@
 package Task2;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Scanner;
-
-@Data
+@Getter
+@Setter
 public class Car {
 
     private String model;
@@ -12,7 +13,8 @@ public class Car {
     private int distance = 50;
     boolean isCarOn;
     private Engine engine = new Engine("Бензиновый двигатель");
-    private Benzobak benzobak = new Benzobak(12, 60);
+    private Benzobak benzobak = new Benzobak(0, 60);
+
 
     public Car(String model, String color) {
         this.model = model;
@@ -25,6 +27,7 @@ public class Car {
             checkDistance();
             checkFuel();
         } else if (benzobak.value > 0 && !isCarOn) {
+            checkEngine();
             checkDistance();
             checkFuel();
         } else {
@@ -47,7 +50,6 @@ public class Car {
         System.out.println("В бензобаке " + benzobak.value + " литров ");
     }
 
-
     public void stop() {
         engine.stop();
     }
@@ -59,15 +61,29 @@ public class Car {
         if (start == 1) {
             engine.start();
             isCarOn = true;
-        } else{
+        } else {
             System.out.println("Машина не заведена");
-            checkEngine();
-            isCarOn= false;
         }
     }
 
     private void checkDistance() {
         System.out.println("Машина прошла " + distance + " км");
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public boolean isCarOn() {
+        return isCarOn;
+    }
+
+    public void setCarOn(boolean carOn) {
+        isCarOn = carOn;
+    }
+
+    public Engine getEngine() {
+        return engine;
     }
 
     @Override
@@ -76,6 +92,18 @@ public class Car {
                 "model='" + model + '\'' +
                 ", color='" + color + '\'' +
                 ", engine=" + engine.type;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public Benzobak getBenzobak() {
+        return benzobak;
+    }
+
+    public void setBenzobak(Benzobak benzobak) {
+        this.benzobak = benzobak;
     }
 
     public class Engine {
@@ -99,7 +127,8 @@ public class Car {
         }
     }
 
-    @Data
+    @Getter
+    @Setter
     public class Benzobak {
         private int value;
         private int totalValue;
@@ -114,4 +143,3 @@ public class Car {
         }
     }
 }
-
