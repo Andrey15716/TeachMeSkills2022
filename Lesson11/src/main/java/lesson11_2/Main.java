@@ -30,16 +30,11 @@ public class Main {
     }
 
     public static Season getSeason(Season.type season) {
-        switch (season) {
-            case AUTUMN:
-                return new Autumn(5);
-            case SPRING:
-                return new Spring(15);
-            case SUMMER:
-                return new Summer(24);
-            case WINTER:
-                return new Winter(-5);
-        }
-        return new Spring(15);
+        return switch (season) {
+            case AUTUMN -> new Autumn(5);
+            case SPRING -> new Spring(15);
+            case SUMMER -> new Summer(24);
+            case WINTER -> new Winter(-5);
+        };
     }
 }
