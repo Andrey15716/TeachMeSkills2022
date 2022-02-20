@@ -20,11 +20,16 @@ public class Main {
         Apple apple = new Apple(150, 50);
         Apricot apricot = new Apricot(234, 24);
         Pear pear = new Pear(324, 86);
-        apple.getFruitPrice();
-        apricot.getFruitPrice();
-        pear.getFruitPrice();
+        getInfoOrder(apple);
+        getInfoOrder(apricot);
+        getInfoOrder(pear);
 
         totalPrice = apple.getTotalPricePerWeight() + apricot.getTotalPricePerWeight() + pear.getTotalPricePerWeight();
         System.out.println("Общая сумма покупок " + (int) totalPrice + " рублей.");
+
+    }
+
+    public static void getInfoOrder(Fruits fruits) {
+        System.out.println("Вы заказали " + fruits.getWeight() + " грамм по цене " + fruits.getFruitPrice());
     }
 }

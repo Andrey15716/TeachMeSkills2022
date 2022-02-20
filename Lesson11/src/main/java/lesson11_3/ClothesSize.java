@@ -12,7 +12,10 @@ public enum ClothesSize {
     M(38),
     L(40);
 
+    public final int euroSize;
+
     ClothesSize(int euroSize) {
+        this.euroSize = euroSize;
     }
 
     public String getDescription() {
