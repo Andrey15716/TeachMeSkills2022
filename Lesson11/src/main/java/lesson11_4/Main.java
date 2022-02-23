@@ -20,6 +20,7 @@ public class Main {
         Apple apple = new Apple(150, 50);
         Apricot apricot = new Apricot(234, 24);
         Pear pear = new Pear(324, 86);
+
         getInfoOrder(apple);
         getInfoOrder(apricot);
         getInfoOrder(pear);
@@ -29,7 +30,7 @@ public class Main {
 
     }
 
-    public static void getInfoOrder(Fruits fruits) {
-        System.out.println("Вы заказали " + fruits.getWeight() + " грамм по цене " + fruits.getFruitPrice());
+    public static void getInfoOrder(Fruit fruit) {
+        System.out.println("Вы заказали " + fruit.getWeight() + " грамм по цене " + fruit.getFruitPrice());
     }
 }

@@ -7,13 +7,12 @@ import java.lang.reflect.Type;
 
 @Getter
 @Setter
-public abstract class Fruits {
-    public static Type type;
+public abstract class Fruit {
     private double weight;
     private double price;
     private double totalPricePerWeight;
 
-    public Fruits(double weight, double price) {
+    public Fruit(double weight, double price) {
         this.weight = weight;
         this.price = price;
     }

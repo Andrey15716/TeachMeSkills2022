@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Apricot extends Fruits {
+public class Apricot extends Fruit {
 
     public Apricot(double weight, double price) {
         super(weight, price);
