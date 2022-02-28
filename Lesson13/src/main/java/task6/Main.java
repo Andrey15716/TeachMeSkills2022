@@ -1,5 +1,7 @@
 package task6;
 
+import task6.util.Report;
+
 public class Main {
     public static void main(String[] args) {
         Employee[] employees = {

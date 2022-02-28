@@ -11,8 +11,8 @@ public class Main {
 
         try {
             car.start();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Message e) {
+            System.out.println(Message.MESSAGE);
         }
     }
 }
