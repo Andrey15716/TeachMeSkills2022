@@ -1,4 +1,5 @@
-package task6;
+package task6.util;
+import task6.Employee;
 
 public class Report {
 
@@ -13,7 +14,7 @@ public class Report {
         }
     }
 
-    public static void print() {
+    private static void print() {
         System.out.printf("|-----------------------+------------|%n");
     }
 }

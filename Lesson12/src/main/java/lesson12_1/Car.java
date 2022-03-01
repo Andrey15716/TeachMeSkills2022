@@ -19,14 +19,14 @@ public class Car {
         this.price = price;
     }
 
-    public void start() throws Exception {
+    public void start() throws Message {
         Random random = new Random();
         int a = random.nextInt(20);
 
         if (a % 2 == 0) {
-            throw new Exception("Вывод исключения");
+            throw new Message();
         } else {
-            System.out.println("Завелся");
+            System.out.println("Автомобиль завелся");
         }
     }
 

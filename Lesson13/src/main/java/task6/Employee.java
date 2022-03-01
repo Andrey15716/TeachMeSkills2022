@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Employee extends Report {
+public class Employee {
     private String fullName;
     private double salary;
 
