@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Main {
 
-    private static final String inputPath = "C:\\Users\\u108\\IdeaProjects\\TeachMeSkills2022\\Lesson14\\src\\main\\java\\task1\\input.txt";
-    private static final String outputPath = "C:\\Users\\u108\\IdeaProjects\\TeachMeSkills2022\\Lesson14\\src\\main\\java\\task1\\output.txt";
+    private static final String inputPath = "Lesson14\\src\\main\\java\\task1\\input.txt";
+    private static final String outputPath = "Lesson14\\src\\main\\java\\task1\\output.txt";
 
     public static void main(String[] args) throws IOException {
         String[] linesIn = Files.readAllLines(Path.of(inputPath)).toArray(new String[0]);

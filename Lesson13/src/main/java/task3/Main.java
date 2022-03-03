@@ -8,7 +8,7 @@ public class Main {
 
     public static void palindromes(String[] str2) {
         for (int i = 0; i < str2.length; i++) {
-            for (int j = i + 1; j < str2.length - 1; j++) {
+            for (int j = i + 1; j < str2.length; j++) {
                 if (isPalindromes(str2[i], str2[j]))
                     System.out.printf("%s (%d) <> %s (%d)\n", str2[i], i, str2[j], j);
             }
