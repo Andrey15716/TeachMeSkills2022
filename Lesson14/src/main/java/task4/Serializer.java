@@ -5,19 +5,24 @@ import java.io.*;
 //Сериализовать объект Автомобиль(Марка, Двигатель(тип двигателя, количество цилиндров), бак(тип топлива, объем), скорость, цена). Количество цилиндров не должно сереализоватся в файл(это конфедициальная информация)
 //        * После сериализации произвести обратный процесс(из потока в объект) и вывести на консоль
 public class Serializer {
-    public static <T> void serialize(T object, File file) {
+    public static void serialize(Object obj, File file) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-            oos.writeObject(object);
+            oos.writeObject(obj);
 
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public static Object deserializer(File file) {
+    public static <T> T deserializer(File file, Class<T> type) {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-            return ois.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+            Object result = ois.readObject();
+            if (type.isInstance(result)) {
+                return type.cast(result);
+            } else {
+                throw new RuntimeException("Invalid class");
+            }
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return null;

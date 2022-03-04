@@ -17,19 +17,19 @@ import java.nio.file.Path;
 //        * Если подходит добавляем его в output.txt файл
 public class Main {
 
-    private static final String inputPath = "Lesson14\\src\\main\\java\\task2\\input.txt";
-    private static final String outputPath = "Lesson14\\src\\main\\java\\task2\\output.txt";
+    private static final String INPUT_PATH = "Lesson14\\src\\main\\java\\task2\\input.txt";
+    private static final String OUTPUT_PATH = "Lesson14\\src\\main\\java\\task2\\output.txt";
 
     public static void main(String[] args) throws IOException {
 
-        String[] linesIn = Files.readAllLines(Path.of(inputPath)).toArray(new String[0]);
+        String[] linesIn = Files.readAllLines(Path.of(INPUT_PATH)).toArray(new String[0]);
         String[] palindromes = task1.Main.palindromes(linesIn);
 
-        try (FileWriter fileOutputStream = new FileWriter(outputPath)) {
+        try (FileWriter fileOutputStream = new FileWriter(OUTPUT_PATH)) {
 
-            for (String e : palindromes) {
+            for (String value : palindromes) {
 
-                fileOutputStream.write(e);
+                fileOutputStream.write(value);
                 fileOutputStream.write(System.lineSeparator());
             }
         }
