@@ -12,13 +12,13 @@ import java.nio.file.Path;
 //         * Если нет, то выводите соответствующее сообщение, кол-во предложений не прошедших проверку и сами предложения подлежащие исправлению.
 public class Main {
 
-    private static final String inputPath = "Lesson14\\src\\main\\java\\task3\\Text.txt";
-    private static final String inputPathOfBlackList = "Lesson14\\src\\main\\java\\task3\\BlackList.txt";
+    private static final String INPUT_PATH = "Lesson14\\src\\main\\java\\task3\\Text.txt";
+    private static final String INPUTPATH_OF_BLACKLIST = "Lesson14\\src\\main\\java\\task3\\BlackList.txt";
 
     public static void main(String[] args) throws IOException {
 
-        String[] text = Files.readAllLines(Path.of(inputPath)).toArray(new String[0]);
-        String[] blackList = Files.readAllLines(Path.of(inputPathOfBlackList)).toArray(new String[0]);
+        String[] text = Files.readAllLines(Path.of(INPUT_PATH)).toArray(new String[0]);
+        String[] blackList = Files.readAllLines(Path.of(INPUTPATH_OF_BLACKLIST)).toArray(new String[0]);
 
         for (String textValue : text) {
             for (String blackListValue : blackList) {

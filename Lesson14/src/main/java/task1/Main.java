@@ -8,14 +8,14 @@ import java.util.List;
 
 public class Main {
 
-    private static final String inputPath = "Lesson14\\src\\main\\java\\task1\\input.txt";
-    private static final String outputPath = "Lesson14\\src\\main\\java\\task1\\output.txt";
+    private static final String INPUT_PATH = "Lesson14\\src\\main\\java\\task1\\input.txt";
+    private static final String OUTPUT_PATH = "Lesson14\\src\\main\\java\\task1\\output.txt";
 
     public static void main(String[] args) throws IOException {
-        String[] linesIn = Files.readAllLines(Path.of(inputPath)).toArray(new String[0]);
+        String[] linesIn = Files.readAllLines(Path.of(INPUT_PATH)).toArray(new String[0]);
         String[] palindrome = palindromes(linesIn);
 
-        try (FileWriter fileOutputStream = new FileWriter(outputPath)) {
+        try (FileWriter fileOutputStream = new FileWriter(OUTPUT_PATH)) {
             for (String e : palindrome) {
                 fileOutputStream.write(e);
                 fileOutputStream.write(System.lineSeparator());
