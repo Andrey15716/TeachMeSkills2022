@@ -12,7 +12,7 @@ public class Main {
     private static final String OUTPUT_PATH = "Lesson14\\src\\main\\java\\task1\\output.txt";
 
     public static void main(String[] args) throws IOException {
-        String[] linesIn = Files.readAllLines(Path.of(INPUT_PATH)).toArray(new String[0]);
+        List<String> linesIn = Files.readAllLines(Path.of(INPUT_PATH));
         String[] palindrome = palindromes(linesIn);
 
         try (FileWriter fileOutputStream = new FileWriter(OUTPUT_PATH)) {
@@ -23,15 +23,15 @@ public class Main {
         }
     }
 
-    public static String[] palindromes(String[] str2) {
+    public static String[] palindromes(List<String> str2) {
         List<String> p = new ArrayList<>();
-        for (int i = 0; i < str2.length; i++) {
-            for (int j = i + 1; j < str2.length; j++) {
-                boolean result = isPalindromes(str2[i], str2[j]);
+        for (int i = 0; i < str2.size(); i++) {
+            for (int j = i + 1; j < str2.size(); j++) {
+                boolean result = isPalindromes(str2.get(i), str2.get(j));
                 if (result) {
-                    System.out.printf("%s (%d) <> %s (%d)\n", str2[i], i, str2[j], j);
-                    p.add(str2[i]);
-                    p.add(str2[j]);
+                    System.out.printf("%s (%d) <> %s (%d)\n", str2.get(i), i, str2.get(j), j);
+                    p.add(str2.get(i));
+                    p.add(str2.get(j));
                 }
             }
         }
