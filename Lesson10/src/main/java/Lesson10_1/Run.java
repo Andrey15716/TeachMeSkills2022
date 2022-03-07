@@ -31,6 +31,9 @@ public class Run {
         robot1.action();
         System.out.println("robot3 -");
         robot2.action();
+
+
+
         System.out.println("Самый дорогой робот - " + Robot.getMostExpensive(robot, Robot.getMostExpensive(robot1, robot2)));
     }
 }
