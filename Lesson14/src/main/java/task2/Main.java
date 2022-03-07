@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 //Текстовый файл hw2/input.txt содержит текст.
 //        * После запуска программы в другой файл должны записаться только те предложения, в которых от 3-х до 5-ти слов.
@@ -22,7 +23,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String[] linesIn = Files.readAllLines(Path.of(INPUT_PATH)).toArray(new String[0]);
+        List<String> linesIn = Files.readAllLines(Path.of(INPUT_PATH));
         String[] palindromes = task1.Main.palindromes(linesIn);
 
         try (FileWriter fileOutputStream = new FileWriter(OUTPUT_PATH)) {
