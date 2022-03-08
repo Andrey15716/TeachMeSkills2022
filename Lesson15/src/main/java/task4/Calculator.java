@@ -1,5 +1,8 @@
 package task4;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class Calculator {
     public static <T extends Number, V extends Number> double sum(T a, V b) {
         return a.doubleValue() + b.doubleValue();
