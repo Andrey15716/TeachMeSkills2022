@@ -2,6 +2,9 @@ package task1;
 
 import java.io.File;
 
+//1) Список каталога
+//        * Написать метод который циклически просматривает содержимое заданного каталога и выводит на печать информацию о всех файлах и каталогах, находящихся в нем и в его подкаталогах.
+//        * Используем рекурсию.
 public class Main {
     public static void main(String[] args) {
         String catalogName = "Lesson15\\src\\main\\java\\task5";
