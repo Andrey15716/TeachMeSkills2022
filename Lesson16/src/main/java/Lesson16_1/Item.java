@@ -1,4 +1,5 @@
-import lombok.AllArgsConstructor;
+package Lesson16_1;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -6,13 +7,13 @@ import java.util.Objects;
 
 @Getter
 @Setter
-public class Items implements Comparable<Items> {
+public class Item implements Comparable<Item> {
     private int id;
     private int price;
     private String name;
     private Category category;
 
-    public Items(int id, int price, String name, Category category) {
+    public Item(int id, int price, String name, Category category) {
         this.id = id;
         this.price = price;
         this.name = name;
@@ -22,16 +23,14 @@ public class Items implements Comparable<Items> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Items items)) return false;
-
-        if (items.price != price) return false;
-        if (!name.equals(items.name)) return false;
-        return category ==items.category;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return id == item.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, price, name);
+        return Objects.hash(id);
     }
 
     @Override
@@ -44,8 +43,8 @@ public class Items implements Comparable<Items> {
     }
 
     @Override
-    public int compareTo(Items items) {
-        return name.compareTo(items.getName());
+    public int compareTo(Item item) {
+        return name.compareTo(item.getName());
     }
 }
 
