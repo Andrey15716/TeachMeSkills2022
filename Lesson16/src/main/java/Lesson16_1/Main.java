@@ -1,3 +1,5 @@
+package Lesson16_1;
+
 /**
  * Необходимо реализовать магазин продуктов.
  * Создать класс Товар, поля:
@@ -59,16 +61,25 @@
 public class Main {
     public static void main(String[] args) {
         Shop shop = new Shop();
+        fillListItems(shop);
 
-        Items items = new Items(1, 123, "Процессор", Category.ALL);
-        Items items1 = new Items(1, 123, "Монитор", Category.ALL);
-
-        shop.addItems(items);
-        shop.addItems(items1);
-
-        shop.deleteItems(items1);
-
-        shop.editItems(new Items(2,14,"Блок питания",Category.ALL));
+        System.out.println("Получить полный список товаров :");
         System.out.println(shop.getItems());
+        System.out.println("Получить сортированный список по возрастанию :");
+        System.out.println(shop.getSortByIncreasePrice());
+        System.out.println("Получить сортированный список по убыванию :");
+        System.out.println(shop.getSortByDecreasePrice());
+        shop.deleteItem(2);
+        System.out.println("Получить список товаров :");
+        System.out.println(shop.getReverseItems());
+        shop.editItem(new Item(4, 134, "Блок питания", Category.ALL));
+        System.out.println(shop.getItems());
+    }
+
+    public static void fillListItems(Shop shop) {
+        shop.addItem(new Item(1, 123, "Процессор", Category.ALL));
+        shop.addItem(new Item(2, 16, "Материнская плата", Category.ALL));
+        shop.addItem(new Item(4, 17, "Видеокарта", Category.ALL));
+        shop.addItem(new Item(3, 18, "Монитор", Category.ALL));
     }
 }

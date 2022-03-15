@@ -1,3 +1,5 @@
+package Lesson16_1;
+
 public enum Category {
     ALL("Все товары");
 
