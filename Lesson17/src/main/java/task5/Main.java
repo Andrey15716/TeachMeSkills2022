@@ -1,7 +1,10 @@
 package task5;
 
+import org.codehaus.plexus.util.StringUtils;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -21,13 +24,20 @@ public class Main {
         List<Person> personList = Arrays.asList(
                 new Person("Петр", "Иванов"),
                 new Person("Дмитрий", "Петров"),
-                new Person("Владимир", "Владимиров")
+                new Person("Владимир", "Владимиров"),
+                new Person(" ", "Владимиров")
         );
-        List<Optional<String>> personsNames = personList.stream()
+
+        List<String> personNames = personList.stream()
                 .map(Person::getName)
                 .filter(name -> name.startsWith("Д"))
-                .map(Optional::of)
+                .filter(StringUtils::isNotBlank)
                 .toList();
-        System.out.println(personsNames);
+        System.out.println(personNames);
+
+        Map<Object, Long> stringIntegerMap = personList.stream()
+                .collect(Collectors.groupingBy(firstLetter -> firstLetter.getSurname().substring(0, 1),
+                        Collectors.counting()));
+        System.out.println(stringIntegerMap);
     }
 }
