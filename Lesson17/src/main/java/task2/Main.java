@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         Set<Integer> integerSet = new HashSet<>(ExpressionHelper.randomNumber());
-        integerSet.stream().filter(n -> n % 2 == 0).collect(Collectors.toSet());
-        System.out.println("Количество четных чисел " + (long) integerSet.size());
+        System.out.println(integerSet);
+        System.out.println("Количество чётных чисел - " + ExpressionHelper.evenNumbers(integerSet));
     }
 }

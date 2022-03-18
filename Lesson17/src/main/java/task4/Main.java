@@ -1,5 +1,7 @@
 package task4;
 
+import org.codehaus.plexus.util.StringUtils;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,8 +24,9 @@ public class Main {
                 new Car("AI3838PP", 2017));
 
         cars.stream()
-                .filter(n -> n.getYear() >= 2010)
-                .filter(n -> n.getModel() != null && !(n.getModel().isEmpty()))
+                .filter(year -> year.getYear() >= 2010)
+                .map(Car::getModel)
+                .filter(StringUtils::isNotBlank)
                 .forEach(System.out::println);
     }
 }
