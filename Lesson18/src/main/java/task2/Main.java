@@ -19,8 +19,32 @@ package task2;
 //        *
 //        * Задача имеет красивое решение через стримы без циклов и условных операторов. Попробуйте придумать его.
 
-public class Main {
-    public static void main(String[] args) {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.stream.Collectors;
 
+public class Main {
+    public static void main(String[] args) throws IOException {
+        try (
+                BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8))) {
+
+            Map<String, Long> map = reader
+                    .lines()
+                    .limit(1)
+                    .flatMap(s -> Arrays.stream(s.split("[\\p{Punct}\\s]+"))
+                            .flatMap(String::lines))
+                    .collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()));
+
+            map.entrySet().stream()
+                    .sorted(Map.Entry.comparingByKey())
+                    .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
+                    .limit(10)
+                    .forEach(System.out::println);
+        }
     }
 }
