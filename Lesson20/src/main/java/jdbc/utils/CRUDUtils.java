@@ -18,8 +18,8 @@ public class CRUDUtils {
     private static String GET_ALL_PRODUCTS_QUERY = "SELECT * FROM product";
     private static String GET_ALL_USERS_QUERY = "SELECT * FROM usr";
     private static String INSERT_PRODUCTS_QUERY = "INSERT INTO product(name, descr,availab,amount,price) VALUES(?,?,?,?,?)";
-    private static String INSERT_USERS_QUERY = "INSERT INTO usr(name, surname) VALUES(?,?)";
-    private static String UPDATE_PRODUCTS_QUERY = "UPDATE product SET availab = ? WHERE idp =?";
+    private static String INSERT_USERS_QUERY = "INSERT INTO usr(name, surname, id_usr) VALUES(?,?,?)";
+    private static String UPDATE_PRODUCTS_QUERY = "UPDATE product SET amount = ?,availab =?,price=?  WHERE idp =?";
     private static String DELETE_PRODUCTS_QUERY = "DELETE FROM product WHERE idp = ?";
 
     public static List<Products> getAllProducts() {
@@ -43,6 +43,25 @@ public class CRUDUtils {
         }
 
         return productsList;
+    }
+
+    public static List<Users> getAllUsers() {
+        List<Users> usersList = new ArrayList<>();
+
+        try (Connection connection = DbUtils.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_USERS_QUERY);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String surname = rs.getString("surname");
+                int id_usr = rs.getInt("id_usr");
+                usersList.add(new Users(id_usr, name, surname));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return usersList;
     }
 
     public static List<Products> saveProducts(Products products) {
@@ -72,8 +91,8 @@ public class CRUDUtils {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PRODUCTS_QUERY);
             preparedStatement.setString(1, amount);
             preparedStatement.setString(2, availab);
-            preparedStatement.setString(2, price);
-            preparedStatement.setInt(1, idp);
+            preparedStatement.setString(3, price);
+            preparedStatement.setInt(4, idp);
             preparedStatement.executeUpdate();
 
             updatedProducts = getAllProducts();
@@ -97,33 +116,15 @@ public class CRUDUtils {
         return deletedProducts;
     }
 
-    public static List<Users> getAllUsers() {
-        List<Users> usersList = new ArrayList<>();
-
-        try (Connection connection = DbUtils.getConnection()) {
-            PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_USERS_QUERY);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            while (rs.next()) {
-                String name = rs.getString("name");
-                String surname = rs.getString("surname");
-                int id_usr = rs.getInt("id_usr");
-                usersList.add(new Users(id_usr, name, surname));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return usersList;
-    }
-
     public static List<Users> saveUsers(Users users) {
         List<Users> savedUsers = new ArrayList<>();
 
         try (Connection connection = DbUtils.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_QUERY);
-            preparedStatement.setString(2, users.getName());
+            preparedStatement.setString(1, users.getName());
             preparedStatement.setString(2, users.getSurname());
-            preparedStatement.setInt(1, users.getId_usr());
+            preparedStatement.setInt(3, users.getId_usr());
+
             preparedStatement.executeUpdate();
 
             savedUsers = getAllUsers();
