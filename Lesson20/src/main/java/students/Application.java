@@ -9,7 +9,7 @@ public class Application {
         CRUDUtils.getAllStudents().forEach(System.out::println);
 
         System.out.println("Save students : ");
-        CRUDUtils.saveStudents(new Student(5, 3, "Anna", "Annova", "Minsk", "Minsk", 3))
+        CRUDUtils.saveStudents(new Student(7, 3, "Anna", "Annova", "Minsk", "Minsk", 3))
                 .forEach(System.out::println);
         System.out.println("Update Students : ");
         CRUDUtils.updateStudents(2, 3, "Moscow")
