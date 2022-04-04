@@ -1,4 +1,4 @@
-package jdbc.model;
+package shop.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,11 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class Users {
-    private int id_usr;
+public class Products {
+    private int idp;
     private String name;
-    private String surname;
+    private String descr;
+    private String availab;
+    private String amount;
+    private String price;
 }

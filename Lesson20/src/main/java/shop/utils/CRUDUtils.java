@@ -1,4 +1,4 @@
-package jdbc.utils;
+package shop.utils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import jdbc.model.Products;
-import jdbc.model.Users;
+import shop.model.Products;
+import shop.model.Users;
 import lombok.Getter;
 import lombok.Setter;
 

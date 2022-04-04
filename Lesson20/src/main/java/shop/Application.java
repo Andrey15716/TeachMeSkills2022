@@ -1,13 +1,13 @@
-package jdbc;
+package shop;
 
-import jdbc.model.Products;
-import jdbc.model.Users;
-import jdbc.utils.CRUDUtils;
+import shop.model.Products;
+import shop.model.Users;
+import shop.utils.CRUDUtils;
 
 public class Application {
     public static void main(String[] args) {
         Products products = new Products(6, "ah", "ashh", "yes", "124", "111");
-        Users users = new Users(4,"Mike","Mikson");
+        Users users = new Users(4, "Mike", "Mikson");
         System.out.println("All products");
         System.out.println(CRUDUtils.getAllProducts());
         System.out.println("All Users");

@@ -1,4 +1,4 @@
-package jdbc.utils;
+package shop.utils;
 
 import lombok.Getter;
 import lombok.Setter;
