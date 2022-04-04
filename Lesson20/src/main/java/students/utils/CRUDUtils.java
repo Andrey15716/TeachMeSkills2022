@@ -102,6 +102,9 @@ public class CRUDUtils {
             preparedStatement.setInt(1, id);
             preparedStatement1.setInt(1, id);
 
+            preparedStatement.executeUpdate();
+            preparedStatement1.executeUpdate();
+
             deleteStudents = getAllStudents();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
