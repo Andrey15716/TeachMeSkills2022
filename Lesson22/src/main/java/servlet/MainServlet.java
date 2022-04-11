@@ -40,9 +40,8 @@ public class MainServlet extends HttpServlet {
         } else {
             resp.getWriter().write("Вы успешно авторизовались");
             printWriter.print("<a href='info'> info</a>");
+            printWriter.print("<br><a href='logout'>logout</a>");
         }
-
-        printWriter.print("<br><a href='logout'>logout</a>");
         printWriter.close();
     }
 }

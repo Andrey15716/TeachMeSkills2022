@@ -36,7 +36,9 @@ public class MainFilter implements Filter {
         if (session != null || loginRequest) {
             filterChain.doFilter(request, response);
         } else {
-            response.sendRedirect(loginURI);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.html");
+//            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/accessDenied.html");
+            requestDispatcher.forward(request, response);
         }
         filterChain.doFilter(request, response);
     }
