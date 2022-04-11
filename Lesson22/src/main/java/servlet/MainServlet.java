@@ -39,7 +39,7 @@ public class MainServlet extends HttpServlet {
             resp.getWriter().write("Неверный пароль. Обратитесь к администратору");
         } else {
             resp.getWriter().write("Вы успешно авторизовались");
-            printWriter.print("<a href='Info'>Info</a>");
+            printWriter.print("<a href='info'> info</a>");
         }
 
         printWriter.print("<br><a href='logout'>logout</a>");

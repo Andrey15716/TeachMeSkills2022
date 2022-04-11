@@ -3,6 +3,9 @@ package filter;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = {"/*"},
@@ -23,12 +26,23 @@ public class MainFilter implements Filter {
             servletResponse.setContentType("text/html");
             servletResponse.setCharacterEncoding(code);
         }
-        filterChain.doFilter(servletRequest, servletResponse);
+
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession(false);
+        String loginURI = request.getContextPath() + "/";
+
+        boolean loginRequest = request.getRequestURI().equals(loginURI);
+        if (session != null || loginRequest) {
+            filterChain.doFilter(request, response);
+        } else {
+            response.sendRedirect(loginURI);
+        }
+        filterChain.doFilter(request, response);
     }
 
     @Override
     public void destroy() {
         code = null;
-
     }
 }
