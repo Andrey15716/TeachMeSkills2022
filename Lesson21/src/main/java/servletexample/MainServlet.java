@@ -18,14 +18,26 @@ public class MainServlet extends HttpServlet {
         String varTextA = String.valueOf(Calculator.sum(2, 4));
         req.setAttribute("textA", varTextA);
 
+        String sum = "Сумма двух чисел";
+        req.setAttribute("sum", sum);
+
         String varTextB = String.valueOf(Calculator.multiply(2, 4));
         req.setAttribute("textB", varTextB);
+
+        String multiply = "Умножение двух чисел";
+        req.setAttribute("multiply", multiply);
 
         String varTextC = String.valueOf(Calculator.divide(4, 2));
         req.setAttribute("textC", varTextC);
 
+        String division = "Деление чисел";
+        req.setAttribute("division", division);
+
         String varTextD = String.valueOf(Calculator.subtraction(3.3, 2));
         req.setAttribute("textD", varTextD);
+
+        String substraction = "Вычитание чисел";
+        req.setAttribute("substraction", substraction);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);

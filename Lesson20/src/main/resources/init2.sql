@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS students_db.students (
 
 DROP TABLE IF EXISTS students_db.city;
 CREATE TABLE IF NOT EXISTS students_db.city (
-    id_city INT NOT NULL AUTO_INCREMENT,
+    city_id INT NOT NULL AUTO_INCREMENT,
     from_city VARCHAR(45) NOT NULL,
     study_city VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id_city));
+    PRIMARY KEY (city_id));
 
 --------------------------------------------------------
 --  DML for Table students_db

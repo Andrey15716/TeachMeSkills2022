@@ -18,7 +18,6 @@ public class DbUtils {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-            connection.setAutoCommit(true);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

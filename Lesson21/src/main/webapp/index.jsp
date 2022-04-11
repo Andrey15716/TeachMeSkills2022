@@ -11,9 +11,9 @@
     <title>Калькулятор</title>
 </head>
 <body>
-<i>Сумма чисел равна - ${textA}</i><br>
-<i>Умножение двух чисел равно - ${textB}</i><br>
-<i>Деление двух чисел равно - ${textC}</i><br>
-<i>Вычитание двух чисел равно - ${textD}</i><br>
+<i>${textA} -> ${sum}</i><br>
+<i>${textB} -> ${multiply}</i><br>
+<i>${textC} -> ${division}</i><br>
+<i>${textD} -> ${substraction}</i><br>
 </body>
 </html>

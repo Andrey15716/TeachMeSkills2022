@@ -16,5 +16,5 @@ public class Student {
     private String surname;
     private String from_city;
     private String study_city;
-    private int id_city;
+    private int city_id;
 }

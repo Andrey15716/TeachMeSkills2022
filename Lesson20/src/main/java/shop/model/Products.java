@@ -10,10 +10,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Products {
-    private int idp;
+    private int id;
     private String name;
-    private String descr;
-    private String availab;
+    private String description;
+    private String available;
     private String amount;
     private String price;
 }

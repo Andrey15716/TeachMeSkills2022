@@ -13,7 +13,6 @@ public class MainFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         code = filterConfig.getInitParameter("encoding");
-
     }
 
     @Override
