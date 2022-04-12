@@ -30,7 +30,7 @@ public class MainFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession(false);
-        String loginURI = request.getContextPath() + "/";
+        String loginURI = request.getContextPath() + "/login";
 
         boolean loginRequest = request.getRequestURI().equals(loginURI);
         if (session != null || loginRequest) {

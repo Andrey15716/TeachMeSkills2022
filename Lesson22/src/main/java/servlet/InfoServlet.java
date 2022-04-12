@@ -1,5 +1,6 @@
 package servlet;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,6 @@ public class InfoServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         HttpSession httpSession = req.getSession(false);
-
         if (httpSession != null) {
 
             try (PrintWriter printWriter = resp.getWriter()) {
@@ -24,9 +24,9 @@ public class InfoServlet extends HttpServlet {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            req.getRequestDispatcher("/info.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher("/").forward(req, resp);
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
+            requestDispatcher.forward(req, resp);
         }
     }
 }
