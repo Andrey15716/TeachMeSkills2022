@@ -1,0 +1,11 @@
+<html>
+<head>
+    <title>
+        Info
+    </title>
+</head>
+<body>
+<i>${textA}</i><br>
+</form>
+</body>
+</html>
