@@ -1,23 +1,23 @@
 package starter;
 
-import org.springframework.beans.factory.annotation.Value;
+import lombok.Setter;
+import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import starter.service.MessageServiceBot;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import starter.service.MessageService;
 
+@Setter
 public class TelegramBot extends TelegramLongPollingBot {
 
-    private final MessageServiceBot messageServiceBot;
-
-    @Value("${bot.username}")
+    private final MessageService messageService;
+    private String token;
     private String username;
 
-    @Value("${bot.token}")
-    private String token;
-
-    public TelegramBot(MessageServiceBot messageServiceBot) {
-        this.messageServiceBot = messageServiceBot;
+    public TelegramBot(DefaultBotOptions options, MessageService messageService) {
+        super(options);
+        this.messageService = messageService;
     }
 
     @Override
@@ -32,13 +32,13 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        try {
-            Message message1 = update.getMessage();
-            if (message1 != null && message1.hasText()) {
-                execute(messageServiceBot.inputMessage(message1));
+        if (update.hasMessage() && update.getMessage().hasText()) {
+            Message message = update.getMessage();
+            try {
+                execute(messageService.inputMessage(message));
+            } catch (TelegramApiException e) {
+                System.out.println(e.getMessage());
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
     }
 }
