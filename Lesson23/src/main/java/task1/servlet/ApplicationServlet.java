@@ -1,4 +1,4 @@
-package servlet;
+package task1.servlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/home")
+@WebServlet("/main")
 public class ApplicationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/home.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/main.jsp");
         requestDispatcher.forward(req, resp);
     }
 }
