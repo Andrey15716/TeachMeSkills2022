@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -33,45 +34,29 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="container-fluid">
-    <c:if test="${not empty gps}">
+    <c:if test="${not empty productList}">
     <div class="row">
-        <p align="left" style="font-size: 22px">GPS навигаторы</p>
-        <c:forEach items="${gps}" var="gps">
+        <c:forEach items="${productList}" var="product">
             <div class="block1">
                 <p>Наименование</p>
-                <a>${gps.getName()}</a>
+                <a>${product.getName()}</a>
                 <p>Описание</p>
-                <a>${gps.getDescription()}</a>
+                <a>${product.getDescription()}</a>
                 <p>Цена</p>
-                <a>${gps.getPrice()}</a>
+                <a>${product.getPrice()}</a>
             </div>
-            <div class="card w-25 m-1" type="gps">
+            <div class="card w-25 m-1" type="product">
                 <div class="card-body">
-                    <a>${gps.getName()}</a>
+                    <a>${product.getName()}</a>
                     <img class="card-img" style="width:150px;height:120px"
-                         src="${contextPath}/images/${gps.getImageName()}" alt="GPS images">
-                    <a class="btn btn-primary stretched-link">Заказать</a>
+                         src="${contextPath}/images/${product.getImageName()}" alt="Product images">
+                    <a href="${contextPath}/product?id=${product.getId()}&name=${product.getName()}"
+                       class="btn btn-primary stretched-link">Просмотреть товары</a>
                 </div>
             </div>
-
-            <style>
-                .block1 {
-                    float: right;
-                    display: block;
-                    width: 300px;
-                    border: 1px solid #c7b5b5;
-                    margin: 2px;
-                }
-
-                .row {
-                    display: table-cell;
-                    vertical-align: middle;
-                    text-align: center;
-                    width: 800px;
-                    height: 100px;
-                }</style>
         </c:forEach>
     </div>
     </c:if>
 </body>
 </html>
+
