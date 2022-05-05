@@ -10,16 +10,19 @@ import java.sql.SQLException;
 @Getter
 @Setter
 public class DbUtils {
-    private static String dbUrl = "jdbc:mysql://localhost:3306/shop";
+    private static String dbUrl = "jdbc:mysql://localhost:3306/eshop";
     private static String dbUsername = "root";
     private static String dbPassword = "qwe345qwe";
 
     public static Connection getConnection() {
         Connection connection = null;
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return connection;
     }

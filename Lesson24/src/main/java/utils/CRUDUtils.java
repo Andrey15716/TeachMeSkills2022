@@ -14,9 +14,8 @@ import java.util.List;
 @Getter
 @Setter
 public class CRUDUtils {
-    private static String GET_USER_QUERY = "SELECT * FROM usr";
-    private static String INSERT_USER_QUERY = "INSERT INTO usr(name,surname,password) VALUES(?,?,?)";
-
+    private static String GET_USER_QUERY = "SELECT * FROM user";
+    private static String INSERT_USER_QUERY = "INSERT INTO user(name,surname,password) VALUES(?,?,?)";
 
     public static List<User> getUser() {
         List<User> usersList = new ArrayList<>();

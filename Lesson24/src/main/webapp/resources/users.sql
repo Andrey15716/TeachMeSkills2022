@@ -1,15 +1,15 @@
 --------------------------------------------------------
 --  DDL for schema students_db
 --------------------------------------------------------
-DROP SCHEMA IF EXISTS shop_users;
-CREATE SCHEMA IF NOT EXISTS shop_users;
+DROP SCHEMA IF EXISTS eshop;
+CREATE SCHEMA IF NOT EXISTS eshop;
 
 --------------------------------------------------------
 --  DDL for Table students_db
 --------------------------------------------------------
 
-DROP TABLE IF EXISTS shop.user;
-CREATE TABLE IF NOT EXISTS shop.user (
+DROP TABLE IF EXISTS eshop.user;
+CREATE TABLE IF NOT EXISTS eshop.user (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
     surname VARCHAR(100) NOT NULL,
@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS shop.user (
 --  DML for Table students_db
 --------------------------------------------------------
 
-INSERT INTO shop.user(name,surname,password) value ('Andrey', 'Andreev', '123');
+INSERT INTO eshop.user(name,surname,password) value ('Andrey', 'Andreev', '123');

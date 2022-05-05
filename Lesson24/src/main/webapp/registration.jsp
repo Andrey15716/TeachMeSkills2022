@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" class="form-control w-25" id="password" placeholder="Enter password"
+                <input type="text" class="form-control w-25" id="password" placeholder="Enter password"
                        name="password"
                        required>
                 <div class="invalid-feedback">Password should be entered!</div>
@@ -43,6 +43,14 @@
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" class="form-control w-25" id="email" placeholder="Enter email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="dateborn">Date born:</label>
+                <input type="date" class="form-control w-25" id="dateborn" placeholder="Enter your birth date"
+                       name="dateborn"
+                       required>
+                <div class="invalid-feedback">Birth date should be entered!</div>
             </div>
 
             <button type="submit" class="btn btn-primary">Registration</button>
