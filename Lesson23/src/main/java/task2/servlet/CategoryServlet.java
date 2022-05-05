@@ -1,6 +1,6 @@
 package task2.servlet;
 
-import task2.model.*;
+import task2.model.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
