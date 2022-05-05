@@ -33,7 +33,7 @@
                         <a>${category.getName()}</a>
                         <img class="card-img" style="width:150px;height:120px"
                              src="${contextPath}/images/${category.getImageName()}" alt="Card image">
-                        <a href="${contextPath}${category.getName().toLowerCase()}"
+                        <a href="${contextPath}/category?id=${category.getId()}&name=${category.getName()}"
                            class="btn btn-primary stretched-link">Просмотреть товары</a>
                     </div>
                 </div>
@@ -44,4 +44,3 @@
 </div>
 </body>
 </html>
-

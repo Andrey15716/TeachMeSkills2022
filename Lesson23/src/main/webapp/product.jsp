@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="resources/style.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -33,46 +34,27 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="container-fluid">
-    <c:if test="${not empty fridges}">
+    <c:if test="${not empty productsById}">
     <div class="row">
-        <p align="left" style="font-size: 22px">Холодильники</p>
-        <c:forEach items="${fridges}" var="fridge">
-            <div class="block1">
-                <p>Наименование</p>
-                <a>${fridge.getName()}</a>
-                <p>Описание</p>
-                <a>${fridge.getDescription()}</a>
-                <p>Цена</p>
-                <a>${fridge.getPrice()}</a>
-            </div>
-            <div class="card w-25 m-1" type="fridge">
+        <p align="left" style="font-size: 22px">Наши товары</p>
+        <c:forEach items="${productsById}" var="productsById">
+            <div class="card w-25 m-1" type="product">
                 <div class="card-body">
-                    <a>${fridge.getName()}</a>
+                    <p>Наименование</p>
+                    <a>${productsById.getName()}</a>
+                    <p>Описание</p>
+                    <a>${productsById.getDescription()}</a>
+                    <p>Цена</p>
+                    <a>${productsById.getPrice()}</a>
                     <img class="card-img" style="width:150px;height:120px"
-                         src="${contextPath}/images/${fridge.getImageName()}" alt="Fridges images">
-                    <a class="btn btn-primary stretched-link">Заказать</a>
+                         src="${contextPath}/images/${productsById.getImageName()}" alt="Card image">
                 </div>
             </div>
-
-            <style>
-                .block1 {
-                    float: right;
-                    display: block;
-                    width: 300px;
-                    border: 1px solid #c7b5b5;
-                    margin: 2px;
-                }
-
-                .row {
-                    display: table-cell;
-                    vertical-align: middle;
-                    text-align: center;
-                    width: 800px;
-                    height: 100px;
-                }</style>
+            <div class="block1">
+                <a class="btn btn-primary stretched-link">Купить!</a>
+            </div>
         </c:forEach>
     </div>
     </c:if>
 </body>
 </html>
-

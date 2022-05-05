@@ -56,12 +56,12 @@ public class ApplicationServlet extends HttpServlet {
 
             List<Category> categories = new ArrayList<>();
 
-            Category mobiles = new Category("Mobiles", "mobile.jpg");
-            Category laptops = new Category("Laptops", "laptop.jpg");
-            Category gps = new Category("GPS", "jps_nav.jpg");
-            Category fridges = new Category("Fridges", "fridge.jpg");
-            Category cars = new Category("Cars", "car.jpg");
-            Category camera = new Category("Camera", "camera.jpg");
+            Category mobiles = new Category("Mobiles", "mobile.jpg", 1);
+            Category laptops = new Category("Laptops", "laptop.jpg", 2);
+            Category gps = new Category("GPS", "jps_nav.jpg", 3);
+            Category fridges = new Category("Fridges", "fridge.jpg", 4);
+            Category cars = new Category("Cars", "car.jpg", 5);
+            Category camera = new Category("Camera", "camera.jpg", 6);
 
             categories.add(mobiles);
             categories.add(laptops);
