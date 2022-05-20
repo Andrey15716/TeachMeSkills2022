@@ -4,7 +4,7 @@ import exceptions.RequestParamNullException;
 import model.AccountData;
 import model.Category;
 import model.User;
-import utils.CRUDUtils;
+import utils.UserDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,7 +48,7 @@ public class ApplicationServlet extends HttpServlet {
     }
 
     private String checkReceivedUser(User user, HttpServletRequest request) {
-        List<User> userList = CRUDUtils.getUser();
+        List<User> userList = UserDAO.getUser();
 
         User admin = new User("admin", "admin");
         userList.add(admin);
@@ -56,6 +56,8 @@ public class ApplicationServlet extends HttpServlet {
 
         if (AccountData.checkUser(request.getParameter("username"), request.getParameter("password"))) {
             request.getSession().setAttribute("username", user);
+
+
 
             List<Category> categories = new ArrayList<>();
 
@@ -81,4 +83,3 @@ public class ApplicationServlet extends HttpServlet {
         }
     }
 }
-

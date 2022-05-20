@@ -11,12 +11,10 @@ public class User {
     private String surname;
     private String password;
     private LocalDate dateBorn;
-    private Cart cart;
 
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-        cart = new Cart();
     }
 
     public User(int id, String name, String surname, String password) {

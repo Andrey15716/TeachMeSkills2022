@@ -1,3 +1,15 @@
+<%@ page import="model.User" %>
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.List" %><%
+    User auth = (User) request.getSession().getAttribute("username");
+    if (auth != null) {
+        response.sendRedirect("index.jsp");
+    }
+    List<Cart> cart_list = (List<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +46,7 @@
 
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="text" class="form-control w-25" id="password" placeholder="Enter password"
+                <input type="text" class="form-control w-25" id="password" placeholder="*******"
                        name="password"
                        required>
                 <div class="invalid-feedback">Password should be entered!</div>
@@ -53,9 +65,10 @@
                 <div class="invalid-feedback">Birth date should be entered!</div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Registration</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Registration</button>
+            </div>
         </form>
-
     </div>
 </div>
 <script>
@@ -78,5 +91,6 @@
         }, false);
     })();
 </script>
+<%@include file="resources/footer.jsp" %>
 </body>
 </html>

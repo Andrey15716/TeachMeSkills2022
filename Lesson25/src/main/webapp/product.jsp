@@ -1,6 +1,15 @@
+<%@ page import="utils.ProductDAO" %>
+<%@ page import="model.Product" %>
+<%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User auth = (User) request.getSession().getAttribute("username");
+    if (auth != null) {
+        request.setAttribute("username", auth);
+    }
+%>
 <html>
 <head>
     <title>Products</title>
@@ -13,24 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="login" style="color: aliceblue">Главная</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="cabinet" style="color: aliceblue">Кабинет</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="basket" style="color: aliceblue">Корзина</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<%@include file="resources/navbar.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="container-fluid">
@@ -50,16 +42,15 @@
                          src="${contextPath}/images/${productsById.getImageName()}" alt="Card image">
                 </div>
             </div>
-            <div class="block1">
-                <form method="post" action="/cart.jsp">
-                    <button type="submit" class="btn btn-primary" name="id"
-                            value="${productsById.getId()}">Купить
-                    </button>
-                </form>
+            <div class="mt-3 d-flex justify-content-between">
+                <a class="btn btn-primary" href="cart?id=${productsById.getId()}">Add to Cart</a>
+                <a class="btn btn-primary" href="order-now?quantity=1&id=${productsById.getId()}">Buy Now</a>
             </div>
+
         </c:forEach>
     </div>
 </div>
 </c:if>
+<%@include file="resources/footer.jsp" %>
 </body>
 </html>

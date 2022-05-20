@@ -1,3 +1,17 @@
+<%@ page import="model.User" %>
+<%@ page import="model.Cart" %>
+<%@ page import="java.util.List" %>
+<%
+    User auth = (User) request.getSession().getAttribute("username");
+    if (auth != null) {
+        response.sendRedirect("index.jsp");
+    }
+    List<Cart> cart_list = (List<Cart>) session.getAttribute("cart-list");
+    if (cart_list != null) {
+        request.setAttribute("cart_list", cart_list);
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,5 +74,6 @@
         }, false);
     })();
 </script>
+<%@include file="resources/footer.jsp" %>
 </body>
 </html>

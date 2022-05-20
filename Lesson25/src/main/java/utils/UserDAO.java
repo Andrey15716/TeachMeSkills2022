@@ -13,7 +13,9 @@ import java.util.List;
 
 @Getter
 @Setter
-public class CRUDUtils {
+
+
+public class UserDAO {
     private static String GET_USER_QUERY = "SELECT * FROM user";
     private static String INSERT_USER_QUERY = "INSERT INTO user(name,surname,password) VALUES(?,?,?)";
 

@@ -1,6 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User auth = (User) request.getSession().getAttribute("username");
+    if (auth != null) {
+        request.setAttribute("username", auth);
+    }
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +27,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%@include file="resources/navbar.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <h2>Popular categories</h2>
 
@@ -42,5 +49,6 @@
     </c:if>
 </div>
 </div>
+<%@include file="resources/footer.jsp" %>
 </body>
 </html>
