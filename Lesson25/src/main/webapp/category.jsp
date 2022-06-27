@@ -1,6 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User auth = (User) request.getSession().getAttribute("username");
+    if (auth != null) {
+        request.setAttribute("username", auth);
+    }
+%>
 <html>
 <head>
     <title>Products</title>
@@ -13,23 +19,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<%@include file="resources/navbar.jsp" %>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"></a>
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="login" style="color: aliceblue">Главная</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="cabinet" style="color: aliceblue">Кабинет</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="cart" style="color: aliceblue">Корзина</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+
+<%--<nav class="navbar navbar-expand-sm bg-dark navbar-dark">--%>
+<%--    <div class="container-fluid">--%>
+<%--        <a class="navbar-brand" href="#"></a>--%>
+<%--        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">--%>
+<%--            <li class="nav-item">--%>
+<%--                <a class="nav-link" href="login" style="color: aliceblue">Главная</a>--%>
+<%--            </li>--%>
+<%--            <li class="nav-item">--%>
+<%--                <a class="nav-link" href="cabinet" style="color: aliceblue">Кабинет</a>--%>
+<%--            </li>--%>
+<%--            <li class="nav-item">--%>
+<%--                <a class="nav-link" href="cart" style="color: aliceblue">Корзина</a>--%>
+<%--            </li>--%>
+<%--        </ul>--%>
+<%--    </div>--%>
+<%--</nav>--%>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -57,5 +65,6 @@
         </c:forEach>
     </div>
     </c:if>
+    <%@include file="resources/footer.jsp" %>
 </body>
 </html>

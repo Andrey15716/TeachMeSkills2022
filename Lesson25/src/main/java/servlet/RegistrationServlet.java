@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import static java.lang.System.out;
+
 @WebServlet("/register")
 public class RegistrationServlet extends HttpServlet {
 
@@ -35,9 +37,11 @@ public class RegistrationServlet extends HttpServlet {
 
         if (!AccountData.isExistUser(user)) {
             AccountData.addUserToList(user);
+            req.setAttribute("username", user);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/registration_success.jsp");
             requestDispatcher.forward(req, resp);
         } else {
+            out.print("Registration failed");
             resp.sendRedirect("registration.jsp");
         }
     }

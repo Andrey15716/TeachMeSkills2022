@@ -9,5 +9,6 @@
 </head>
 <body>
 <a>Welcome!</a>
+<%@include file="resources/footer.jsp" %>
 </body>
 </html>

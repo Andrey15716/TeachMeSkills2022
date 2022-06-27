@@ -4,8 +4,8 @@ import lombok.Getter;
 
 import java.util.List;
 
-import static utils.CRUDUtils.addUser;
-import static utils.CRUDUtils.getUser;
+import static utils.UserDAO.addUser;
+import static utils.UserDAO.getUser;
 
 @Getter
 public class AccountData {
