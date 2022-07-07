@@ -1,6 +1,16 @@
 package utils;
 
-import commands.*;
+import commands.AddProductToCartCommandImpl;
+import commands.BaseCommand;
+import commands.CategoryRedirectCommand;
+import commands.HomePageCommand;
+import commands.OrderProductCommandImpl;
+import commands.RedirectProductPageCommandImpl;
+import commands.RedirectProfilePageCommandImpl;
+import commands.RedirectRegistrationCommandImpl;
+import commands.RedirectToShoppingCart;
+import commands.SearchCommandImpl;
+import commands.SigningCommandImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -19,7 +29,6 @@ public class CommandFactory {
         COMMAND_LIST.put(CommandsEnum.REGISTRATION_COMMAND.getCommand(), new RedirectRegistrationCommandImpl());
         COMMAND_LIST.put(CommandsEnum.REDIRECT_TO_PROFILE_COMMAND.getCommand(), new RedirectProfilePageCommandImpl());
         COMMAND_LIST.put(CommandsEnum.ORDER_COMMAND.getCommand(), new OrderProductCommandImpl());
-        COMMAND_LIST.put(CommandsEnum.CONFIRM_REGISTRATION_COMMAND.getCommand(), new ConfirmRegistrationCommandImpl());
         COMMAND_LIST.put(CommandsEnum.SEARCH_COMMAND.getCommand(), new SearchCommandImpl());
     }
 

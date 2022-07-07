@@ -11,9 +11,9 @@
     <title>Калькулятор</title>
 </head>
 <body>
-<i>${textA} -> ${sum}</i><br>
-<i>${textB} -> ${multiply}</i><br>
-<i>${textC} -> ${division}</i><br>
-<i>${textD} -> ${substraction}</i><br>
+<i> Sum: ${sum}</i><br>
+<i>Multiply: ${multiply}</i><br>
+<i>Division: ${division}</i><br>
+<i>Subtraction: ${subtraction}</i><br>
 </body>
 </html>

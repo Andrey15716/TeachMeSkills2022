@@ -15,29 +15,18 @@ public class MainServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
-        String varTextA = String.valueOf(Calculator.sum(2, 4));
-        req.setAttribute("textA", varTextA);
 
-        String sum = "Сумма двух чисел";
+        String sum = String.valueOf(Calculator.sum(2, 4));
         req.setAttribute("sum", sum);
 
-        String varTextB = String.valueOf(Calculator.multiply(2, 4));
-        req.setAttribute("textB", varTextB);
-
-        String multiply = "Умножение двух чисел";
+        String multiply = String.valueOf(Calculator.multiply(2, 4));
         req.setAttribute("multiply", multiply);
 
-        String varTextC = String.valueOf(Calculator.divide(4, 2));
-        req.setAttribute("textC", varTextC);
+        String divide = String.valueOf(Calculator.divide(4, 2));
+        req.setAttribute("divide", divide);
 
-        String division = "Деление чисел";
-        req.setAttribute("division", division);
-
-        String varTextD = String.valueOf(Calculator.subtraction(3.3, 2));
-        req.setAttribute("textD", varTextD);
-
-        String substraction = "Вычитание чисел";
-        req.setAttribute("substraction", substraction);
+        String subtraction = String.valueOf(Calculator.subtraction(3.3, 2));
+        req.setAttribute("subtraction", subtraction);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/index.jsp");
         requestDispatcher.forward(req, resp);
