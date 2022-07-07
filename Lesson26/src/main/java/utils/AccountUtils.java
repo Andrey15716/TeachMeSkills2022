@@ -18,9 +18,4 @@ public class AccountUtils {
         }
         return false;
     }
-
-//    public static boolean isExistUser(User user) {
-//        return user.stream().anyMatch(user1 -> user1.getName().equals(user.getName())
-//                        && user1.getPassword().equals(user.getPassword()));
-//    }
 }

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static utils.RequestParamsEnum.SHOPPING_CART;
 import static utils.RequestParamsEnum.LOGGED_IN_USER;
@@ -33,19 +34,23 @@ public class OrderProductCommandImpl implements BaseCommand {
     public String execute(HttpServletRequest request) throws CommandException, RequestParamNullException {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute(SHOPPING_CART.getValue());
-        List<Product> products = cart.getProducts();
-        int priceOrder = cart.getTotalPrice();
-        LocalDate date = LocalDate.now();
-        User loggedInUser = (User) session.getAttribute(LOGGED_IN_USER.getValue());
-        Order order = new Order(loggedInUser.getId(), date, priceOrder, products);
-        Order createdOrder = orderRepository.create(order);
-        cart.clearCart();
-        cart.setTotalPrice(0);
-        session.setAttribute(SHOPPING_CART_PRODUCTS.getValue(), cart);
-        request.setAttribute(ORDER_ID.getValue(), createdOrder.getId());
-        request.setAttribute(PRICE_ORDER.getValue(), priceOrder);
-        int userId = loggedInUser.getId();
-        log.info("User with id = " + userId + " purchased order with id = " + createdOrder.getId());
-        return PagesPathEnum.ORDER_PAGE.getPath();
+        if (Optional.ofNullable(cart).isPresent()) {
+            List<Product> products = cart.getProducts();
+            int priceOrder = cart.getTotalPrice();
+            LocalDate date = LocalDate.now();
+            User loggedInUser = (User) session.getAttribute(LOGGED_IN_USER.getValue());
+            Order order = new Order(loggedInUser.getId(), date, priceOrder, products);
+            Order createdOrder = orderRepository.create(order);
+            cart.clearCart();
+            cart.setTotalPrice(0);
+            session.setAttribute(SHOPPING_CART_PRODUCTS.getValue(), cart);
+            request.setAttribute(ORDER_ID.getValue(), createdOrder.getId());
+            request.setAttribute(PRICE_ORDER.getValue(), priceOrder);
+            int userId = loggedInUser.getId();
+            log.info("User with id = " + userId + " purchased order with id = " + createdOrder.getId());
+            return PagesPathEnum.ORDER_PAGE.getPath();
+        } else {
+            return PagesPathEnum.ORDER_PAGE.getPath();
+        }
     }
 }

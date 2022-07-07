@@ -1,6 +1,16 @@
 package utils;
 
-import commands.*;
+import commands.AddProductToCartCommandImpl;
+import commands.BaseCommand;
+import commands.CategoryRedirectCommand;
+import commands.HomePageCommand;
+import commands.OrderProductCommandImpl;
+import commands.RedirectProductPageCommandImpl;
+import commands.RedirectProfilePageCommandImpl;
+import commands.RedirectRegistrationCommandImpl;
+import commands.RedirectToShoppingCart;
+import commands.SearchCommandImpl;
+import commands.SigningCommandImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;

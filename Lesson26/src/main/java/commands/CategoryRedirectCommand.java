@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.util.List;
 
-import static utils.RequestParamsEnum.*;
+import static utils.RequestParamsEnum.CATEGORY;
+import static utils.RequestParamsEnum.CATEGORY_ID;
+import static utils.RequestParamsEnum.CATEGORY_NAME;
 
 public class CategoryRedirectCommand implements BaseCommand {
     private final CategoryRepository categoryRepository = new CategoryRepositoryImpl();
