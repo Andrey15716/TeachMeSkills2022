@@ -38,17 +38,6 @@
     </div>
 </nav>
 
-<div class="container-buttons">
-    <a href="${contextPath}/eshop?command=search">
-        <i class="fa-solid fa-magnifying-glass fa-3x" style="color: black"></i>
-    </a>
-    <a href="${contextPath}/eshop?command=redirect-to-profile">
-        <i class="fa-solid fa-user fa-3x" style="color: black"></i>
-    </a>
-    <a href="${contextPath}/eshop?command=redirect-to-shopping-cart">
-        <i class="fa-solid fa-cart-shopping fa-3x" style="color: black"></i>
-    </a>
-</div>
 <div class="container-fluid">
     <c:if test="${not empty categories}">
         <div class="row">
